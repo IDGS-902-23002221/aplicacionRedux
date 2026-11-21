@@ -1,0 +1,15 @@
+# config de Netlify: construye con vite y publica dist
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# vite 8 pide node moderno
+[build.environment]
+  NODE_VERSION = "22"
+
+# si entra una ruta que no existe, devuelve el index (SPA)
+# sin force, solo aplica cuando no hay archivo real (assets, sw, manifest siguen igual)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
